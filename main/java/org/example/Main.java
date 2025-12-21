@@ -146,7 +146,7 @@ this.add(pnlCenter,BorderLayout.CENTER);
 this.add(pnlSouth,BorderLayout.SOUTH);
 
 
-//this.setSize(300,300);
+
 
 this.pack();
 this.setVisible(true);
