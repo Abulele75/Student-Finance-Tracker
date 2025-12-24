@@ -12,7 +12,7 @@ public class Main extends JFrame{
     JTextField txtUsername, txtPassword;
     JButton btnLogin, btnForgotPassword,btnCreateProfile;
 
-
+    JLabel logoLabel = new JLabel();
     ImageIcon icon;
 
 
@@ -21,6 +21,23 @@ public class Main extends JFrame{
         pnlNorth = new JPanel();
         pnlCenter = new JPanel();
         pnlSouth = new JPanel();
+
+
+
+
+
+        icon = RoundedImageUtil.createRoundedImageIcon("/images/Nsfas.png",80);
+
+        if(icon != null){
+            logoLabel.setIcon(icon);
+            logoLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+            logoLabel.setHorizontalAlignment(JLabel.CENTER);
+            logoLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 28));
+
+
+        }
+
+
 
         lblHeader = new JLabel(
                 "<html><b><span style = 'font-size: 13px'> Welcome to NSFAS </span></b><br>" +
@@ -91,6 +108,8 @@ pnlNorth.setLayout(new BoxLayout(pnlNorth, BoxLayout.Y_AXIS));
 pnlCenter.setLayout(new BoxLayout(pnlCenter, BoxLayout.Y_AXIS));
 
 pnlSouth.setLayout(new BoxLayout(pnlSouth, BoxLayout.Y_AXIS));
+
+pnlNorth.add(logoLabel);
 
 //Setting the size of the panel north components to be able to center it
 lblHeader.setMaximumSize(new Dimension(300,lblHeader.getPreferredSize().height));
