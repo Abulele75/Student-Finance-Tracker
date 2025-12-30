@@ -2,8 +2,11 @@ package org.example;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import org.example.RequestPassword;
 
 
 public class Main extends JFrame{
@@ -91,8 +94,31 @@ public class Main extends JFrame{
         });
 
         btnLogin = new JButton("<html><span style = 'color:White'>Login</span></html>");
+        btnLogin.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(btnLogin.isSelected()){
+                    btnLogin.getText().equals(txtUsername.getText());
+                    btnLogin.getText().equals(txtPassword.getText());
+                    JOptionPane.showMessageDialog(null, "Welcome to NSFAS");
+
+
+                } else{
+                    JOptionPane.showMessageDialog(null, "Please enter a username and password");
+                }
+            }
+        });
         btnLogin.setBackground(Color.RED);
         btnForgotPassword = new JButton("<html><span style = 'color:White'>Forgot Password</span></html>");
+        btnForgotPassword.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+               new RequestPassword();
+              dispose();
+
+                }
+
+        });
         btnForgotPassword.setBackground(Color.RED);
         btnCreateProfile = new JButton("<html><span style = ' color:Black; font-size: 10px'>Create Account</span></html>");
         btnCreateProfile.setBackground(Color.WHITE);
@@ -101,6 +127,20 @@ public class Main extends JFrame{
         lblsubheader = new JLabel("<html>" +
                 "<b><span style ='color: Black; font-size:12px;'> Don't have profile</b></span><br>" +
                 " <span style ='font-size : 7px;'>Get started by creating a profile</span>" + "</html>");
+
+    }
+
+    private void Login(){
+
+        String username = txtUsername.getText();
+        String password = txtPassword.getText();
+
+        if(username.isEmpty() || password.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Please fill all the fields!");
+        }else{
+            JOptionPane.showMessageDialog(null, "Welcome to NSFAS");
+
+        }
 
     }
 public void setGUI(){
