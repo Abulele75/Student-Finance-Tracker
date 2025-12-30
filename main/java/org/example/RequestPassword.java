@@ -39,6 +39,7 @@ public class RequestPassword extends JFrame {
                 }
 
             }
+
         });
         //txtRequestUsername.setForeground(Color.GRAY);
         txtRequestEmail = new JTextField();
