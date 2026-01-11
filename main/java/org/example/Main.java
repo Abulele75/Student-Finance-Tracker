@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import org.example.RequestPassword;
+import org.example.CreateProfile;
 
 
 public class Main extends JFrame{
@@ -97,18 +98,12 @@ public class Main extends JFrame{
         btnLogin.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(btnLogin.isSelected()){
-                    btnLogin.getText().equals(txtUsername.getText());
-                    btnLogin.getText().equals(txtPassword.getText());
-                    JOptionPane.showMessageDialog(null, "Welcome to NSFAS");
-
-
-                } else{
-                    JOptionPane.showMessageDialog(null, "Please enter a username and password");
-                }
+              Login();
             }
         });
         btnLogin.setBackground(Color.RED);
+
+
         btnForgotPassword = new JButton("<html><span style = 'color:White'>Forgot Password</span></html>");
         btnForgotPassword.addActionListener(new ActionListener() {
             @Override
@@ -122,6 +117,13 @@ public class Main extends JFrame{
         btnForgotPassword.setBackground(Color.RED);
         btnCreateProfile = new JButton("<html><span style = ' color:Black; font-size: 10px'>Create Account</span></html>");
         btnCreateProfile.setBackground(Color.WHITE);
+        btnCreateProfile.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new CreateProfile();
+                dispose();
+            }
+        });
 
 
         lblsubheader = new JLabel("<html>" +
@@ -135,14 +137,16 @@ public class Main extends JFrame{
         String username = txtUsername.getText();
         String password = txtPassword.getText();
 
-        if(username.isEmpty() || password.isEmpty()){
+        if(username.isEmpty() || password.isEmpty()
+        || username.equals("Username") ||password.equals("Password")) {
             JOptionPane.showMessageDialog(null, "Please fill all the fields!");
-        }else{
+            return;
+        }
             JOptionPane.showMessageDialog(null, "Welcome to NSFAS");
 
         }
 
-    }
+
 public void setGUI(){
 pnlNorth.setLayout(new BoxLayout(pnlNorth, BoxLayout.Y_AXIS));
 pnlCenter.setLayout(new BoxLayout(pnlCenter, BoxLayout.Y_AXIS));

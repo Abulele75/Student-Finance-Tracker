@@ -69,14 +69,17 @@ public class RequestPassword extends JFrame {
         btnRequestPassword.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(btnRequestPassword.isSelected()){
-                    btnRequestPassword.getText().equals(txtRequestUsername.getText());
-                    btnRequestPassword.getText().equals(txtRequestEmail.getText());
-                    JOptionPane.showMessageDialog(null,"Please enter your username and password ");
+
+                String username = txtRequestUsername.getText();
+                String email = txtRequestEmail.getText();
+
+                if(username.isEmpty() || email.isEmpty()
+                        || username.equals("Username") ||email.equals("Enter email address")) {
+                    JOptionPane.showMessageDialog(null, "Please fill all the fields!");
+                    return;
                 }
-                else{
-                    JOptionPane.showMessageDialog(null,"Please enter your username and email address");
-                }
+                JOptionPane.showMessageDialog(null, "Welcome to NSFAS");
+
             }
         });
 
